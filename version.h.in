@@ -1,0 +1,9 @@
+#ifndef VERSION_H
+#define VERSION_H
+
+#define PROJECT_NAME "@PROJECT_NAME@"
+#define PROJECT_VERSION "@PROJECT_VERSION@"
+#define PROJECT_DESCRIPTION "Custom containers implementation"
+#define BUILD_OS "@CMAKE_SYSTEM_NAME@"
+
+#endif // VERSION_H
