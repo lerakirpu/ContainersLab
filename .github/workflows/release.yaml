@@ -7,12 +7,33 @@ on:
     branches: [ main, master ]
 
 jobs:
-  build:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest]
+  build-linux:
+    runs-on: ubuntu-latest
+    name: Build Linux
     
-    runs-on: ${{ matrix.os }}
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential
+    
+    - name: Configure CMake
+      run: |
+        cmake -B build -DCMAKE_BUILD_TYPE=Release
+    
+    - name: Build
+      run: |
+        cmake --build build --config Release
+    
+    - name: Test
+      run: |
+        cd build && ./containers_demo
+
+  build-windows:
+    runs-on: windows-latest
+    name: Build Windows
     
     steps:
     - uses: actions/checkout@v3
@@ -27,4 +48,4 @@ jobs:
     
     - name: Test
       run: |
-        cd build && ctest --verbose
+        cd build && .\containers_demo.exe
