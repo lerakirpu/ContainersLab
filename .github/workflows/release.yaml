@@ -48,4 +48,4 @@ jobs:
     
     - name: Test
       run: |
-        cd build && .\containers_demo.exe
+        cd build && .\Release\containers_demo.exe
