@@ -45,7 +45,7 @@ void demonstrate_container(const std::string& container_name) {
     }
     std::cout << std::endl;
     
-    // Добавление элемента 20 в середину
+    // Вычисление середины контейнера
     size_t middle = container.size() / 2;
     container.insert(middle, 20);
     
